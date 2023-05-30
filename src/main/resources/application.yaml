@@ -1,0 +1,19 @@
+server:
+  port: 8081
+logging:
+  level:
+    org.springframework.security: TRACE
+spring:
+  security:
+    saml2:
+      relyingparty:
+        registration:
+          saml:
+            assertingparty:
+              verification:
+                credentials:
+                  - certificate-location: "classpath:saml/sign.crt"
+              entity-id: http://localhost:8080/auth/realms/demo
+              singlesignon:
+                url: http://localhost:8080/auth/realms/demo/protocol/saml
+                sign-request: false
